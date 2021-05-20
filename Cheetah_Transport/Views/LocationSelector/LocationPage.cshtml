@@ -1,0 +1,45 @@
+﻿@section locationselectorsection {
+    <link href="@Url.Content("/css/location-selector-style.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="bg">
+    <div class="row inner-frame">
+        <div class="column">
+            <img class="map" src="/images/Map.jpg" />
+        </div>
+        <div class="column">
+            <div style="margin-top: 10%">
+
+                <div style="float: right; padding-right: 30%">
+                    <label>Delivery from</label>
+                    <div class="btn-group">
+                        <button class="dropdown-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Small button
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="float: right; padding-right: 30%">
+                    <div class="break"></div>
+                    <label>Delivery to</label>
+                    <div class="btn-group">
+                        <button class="dropdown-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Small button
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="flow-button btn btn-primary" onclick="location.href = '@Url.Action("ParcelInformationPage", "ParcelInformation")'">Next</button>
+            </div>
+        </div>
+    </div>
+    <img class="bottom-logo" src="../../images/telstar_logo.PNG" />
+</div>
