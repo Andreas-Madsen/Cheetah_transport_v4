@@ -9,7 +9,7 @@ using Dijkstra.NET.ShortestPath;
 
 namespace RouteEngine
 {
-    class RouteEngine
+    public class RouteEngine
     {
         private Graph<int, string> _map;
 

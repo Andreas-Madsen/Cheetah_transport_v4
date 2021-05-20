@@ -18,7 +18,7 @@ namespace Cheetah_Transport.Data
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                string sqlQuery = "SELECT * from ";
+                string sqlQuery = "SELECT * from dbo.PACKAGE";
 
                 SqlCommand command = new SqlCommand(sqlQuery, connection);
 
