@@ -38,7 +38,7 @@ namespace ExternalIntegration.Controllers
         [HttpGet]
         public TelstarResponse Get([FromBody] TelstarRequest telstarRequest) 
         {
-            string errorMsg = CommunicationValidation.verifyTelstarRequest(telstarRequest);
+            string errorMsg = CommunicationValidation.VerifyTelstarRequest(telstarRequest);
             if (errorMsg != null) {
                 return returnError(errorMsg);
             }

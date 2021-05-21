@@ -262,7 +262,7 @@ namespace ExternalIntegration.Validations {
         /**
          * Validates the request for telstar logistics
          */
-        public static string verifyTelstarRequest(TelstarRequest telstarRequest) 
+        public static string VerifyTelstarRequest(TelstarRequest telstarRequest) 
         {
             //Check company
             CompanyEnum company;

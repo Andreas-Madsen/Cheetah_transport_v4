@@ -60,5 +60,53 @@ namespace ExternalIntegration.Validations.Tests {
             string s = CommunicationValidation.IsNumberValid(2);
             NoError(s);
         }
+
+        [TestMethod()]
+        public void ValidateRequest() {
+            string s = CommunicationValidation.VerifyTelstarRequest(new TelstarRequest {
+                Company = CompanyEnum.TELSTAR_LOGISTICS.ToString(),
+                SecretCompanyCode = CompanySecrets.GetTelstarSecret(),
+                CityFrom = CityEnum.KAPSTADEN.ToString(),
+                CityTo = CityEnum.HVALBUGTEN.ToString(),
+                Features = new string[0],
+                Height = 2,
+                Length = 2,
+                Width = 2,
+                Weight = 2
+            });
+            NoError(s);
+        }
+
+        [TestMethod()]
+        public void WeaponNotAllowed() {
+            string s = CommunicationValidation.VerifyTelstarRequest(new TelstarRequest {
+                Company = CompanyEnum.TELSTAR_LOGISTICS.ToString(),
+                SecretCompanyCode = CompanySecrets.GetTelstarSecret(),
+                CityFrom = CityEnum.KAPSTADEN.ToString(),
+                CityTo = CityEnum.HVALBUGTEN.ToString(),
+                Features = new string[] { FeatureEnum.WEAPONS.ToString()},
+                Height = 2,
+                Length = 2,
+                Width = 2,
+                Weight = 2
+            });
+            IsError(s);
+        }
+
+        [TestMethod()]
+        public void InvalidValue() {
+            string s = CommunicationValidation.VerifyTelstarRequest(new TelstarRequest {
+                Company = CompanyEnum.TELSTAR_LOGISTICS.ToString(),
+                SecretCompanyCode = CompanySecrets.GetTelstarSecret(),
+                CityFrom = CityEnum.KAPSTADEN.ToString(),
+                CityTo = CityEnum.HVALBUGTEN.ToString(),
+                Features = new string[0],
+                Height = 2,
+                Length = 2,
+                Width = -2,
+                Weight = 2
+            });
+            IsError(s);
+        }
     }
 }
