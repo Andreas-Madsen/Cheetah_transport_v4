@@ -40,8 +40,8 @@ namespace Cheetah_Transport.Data.Tests
             package.RefregiatedGoods = 1;
             var test_data = new PackageDAO();
             test_data.CreateOne(package);
-            Assert.IsNotNull(test_data);
             Clean();
+            Assert.IsNotNull(test_data);
 
 
 
@@ -52,6 +52,8 @@ namespace Cheetah_Transport.Data.Tests
             SqlConnection connection = new SqlConnection(ConnectionString);
             string sqlQuery = "DELETE FROM dbo.package WHERE Id=-1;";
             SqlCommand command = new SqlCommand(sqlQuery, connection);
+            connection.Open();
+            int newID = command.ExecuteNonQuery();
             return true;
         }
 
