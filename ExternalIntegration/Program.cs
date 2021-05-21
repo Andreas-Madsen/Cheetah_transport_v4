@@ -1,3 +1,5 @@
+using Cheetah_Transport.Data;
+using Cheetah_Transport.Models;
 using ExternalIntegration.Controllers;
 using ExternalIntegration.Enums;
 using ExternalIntegration.Models;
