@@ -9,7 +9,7 @@ using Dijkstra.NET.Graph;
 
 namespace RouteEngine
 {
-    class MapBuilder
+    public class MapBuilder
     {
 
         public List<Routes> Routes { get; set;  }
