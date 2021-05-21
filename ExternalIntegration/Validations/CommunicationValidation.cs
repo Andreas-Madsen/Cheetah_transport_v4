@@ -31,13 +31,222 @@ namespace ExternalIntegration.Validations {
             return null;
         }
 
+        private static bool checkCites(CityEnum c1, CityEnum c2, CityEnum c3) {
+            return c1 == c3 || c2 == c3;
+        }
+
         /**
          * Check that the cities are directly connected
+         * 
+         * Insanely "good" method
          */
         public static string isCitiesDirect(CityEnum cityFrom, CityEnum cityTo) 
         {
-            //TODO implement (direct routes will be in database)
-            return null;
+            if(checkCites(cityFrom, cityTo, CityEnum.TANGER)) {
+                if(checkCites(cityFrom, cityTo, CityEnum.MARRAKESH)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.TUNIS)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.SAHARA)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.TUNIS)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.TRIPOLI)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.TRIPOLI)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.OMDURMAN)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.OMDURMAN)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.CAIRO)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.DARFUR)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.CAIRO)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.SUAKIN)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.SUAKIN)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.DARFUR)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.ADDIS_ABEBA)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.ADDIS_ABEBA)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.KAP_GUARDAFUI)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.KAP_GUARDAFUI)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.ZANZIBAR)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.ZANZIBAR)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.MOCAMBIQUE)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.VICTORIASOEEN)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.MOCAMBIQUE)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.DRAGEBJERGET)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.VICTORIA_FALDENE)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.LUANDA)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.DRAGEBJERGET)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.VICTORIA_FALDENE)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.VICTORIA_FALDENE)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.HVALBUGTEN)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.HVALBUGTEN)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.KAPSTADEN)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.LUANDA)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.LUANDA)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.CONGO)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.KABALO)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.CONGO)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.SLAVEKYSTEN)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.WADAI)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.DARFUR)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.SLAVEKYSTEN)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.TIMBUKTU)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.WADAI)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.DARFUR)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.TIMBUKTU)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.GULDKYSTEN)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.GULDKYSTEN)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.SIERRA_LEONE)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.TIMBUKTU)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.DAKAR)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.MARRAKESH)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.MARRAKESH)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.SAHARA)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.SAHARA)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.DAKAR)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.DARFUR)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.WADAI)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.BAHR_EL_GHAZAL)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.BAHR_EL_GHAZAL)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.VICTORIASOEEN)) {
+                    return null;
+                }
+            }
+
+            if (checkCites(cityFrom, cityTo, CityEnum.VICTORIASOEEN)) {
+                if (checkCites(cityFrom, cityTo, CityEnum.KABALO)) {
+                    return null;
+                }
+            }
+
+            return "City is not direct";
         }
 
         /**
