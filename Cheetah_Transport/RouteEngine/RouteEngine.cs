@@ -11,16 +11,12 @@ namespace RouteEngine
 {
     public class RouteEngine
     {
-        private Graph<int, string> _map;
+        //private MapBuilder _builder = new MapBuilder();
+
+        private Graph<int, string> _map = new MapBuilder().Map;
 
         private List<Routes> routes;
 
-        public RouteEngine()
-        {
-            var builder = new MapBuilder();
-            _map = builder.GetMap();
-
-        }
         public Tuple<List<int>, int> ComputeRoute(Package packageInfo, TransportCenter from, TransportCenter to)
         {
             var keyFrom = Dictio.centerIdToKey[from.Id];

@@ -16,8 +16,8 @@ namespace Cheetah_Transport.Controllers
             var t1 = dao.FetchOne(2);
             var t2 = dao.FetchOne(23);
 
-            var routeEngine = new RouteEngine.RouteEngine();
-            var res = routeEngine.ComputeRoute(null, t1, t2);
+            
+            var res = Program.Engine.ComputeRoute(null, t1, t2);
 
             var distance = res.Item2;
             var route = res.Item1;
