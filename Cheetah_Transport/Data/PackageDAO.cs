@@ -52,7 +52,7 @@ namespace Cheetah_Transport.Data
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
 
-                string sqlQuery = "INSERT INTO dbo.Gadgets Values(@ID, @Width_cm, @Height_cm, @Length_cm, @Weight_KG, @RECOMMENDED, @ANIMALS, @CAUTIOUS, @REFRIGIATED)";
+                string sqlQuery = "INSERT INTO dbo.PACKAGE Values(@ID, @Width_cm, @Height_cm, @Length_cm, @Weight_KG, @RECOMMENDED, @ANIMALS, @CAUTIOUS, @REFRIGIATED)";
 
                 SqlCommand command = new SqlCommand(sqlQuery, connection);
                 command.Parameters.Add("@Id", System.Data.SqlDbType.VarChar, 1000).Value = package.ID;
