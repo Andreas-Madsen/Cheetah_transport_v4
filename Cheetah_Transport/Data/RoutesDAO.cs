@@ -128,6 +128,63 @@ namespace Cheetah_Transport.Data
 
 
 
+        public Routes FetchOne(int A_ID, int B_ID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string sqlQuery = "SELECT * from dbo.Routes WHERE(CENTER_A_ID = @A_ID AND CENTER_B_ID = @B_ID AND TRANSPORT_ID = 1) OR (CENTER_B_ID = @A_ID AND CENTER_A_ID = @B_ID  AND TRANSPORT_ID = 1)";
+
+                SqlCommand command = new SqlCommand(sqlQuery, connection);
+
+                command.Parameters.Add("@A_Id", System.Data.SqlDbType.Int).Value = A_ID;
+                command.Parameters.Add("@B_Id", System.Data.SqlDbType.Int).Value = B_ID;
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                Routes route = new Routes();
+
+                if (reader.HasRows)
+                {
+
+                    while (reader.Read())
+                    {
+
+
+                        TransportCenterDAO tcDAO = new TransportCenterDAO();
+
+                        int centerAId = reader.GetInt32(reader.GetOrdinal("Center_A_Id"));
+                        TransportCenter centerA = tcDAO.FetchOne(centerAId);
+
+                        int centerBId = reader.GetInt32(reader.GetOrdinal("Center_B_Id"));
+                        TransportCenter centerB = tcDAO.FetchOne(centerBId);
+
+                        TransportTypeDAO ttDAO = new TransportTypeDAO();
+                        int typeId = reader.GetOrdinal("Transport_Id");
+                        TransportType transportType = ttDAO.FetchOne(typeId);
+
+                        route.Id = reader.GetInt32(reader.GetOrdinal("Id"));
+                        route.CenterA = centerA;
+                        route.CenterB = centerB;
+                        route.Type = transportType;
+                        if (reader.IsDBNull(reader.GetOrdinal("Travel_Time_Hours")))
+                        {
+                            route.TravelTime = 1000;
+                        }
+                        else
+                        {
+                            route.TravelTime = reader.GetInt32(reader.GetOrdinal("Travel_Time_Hours"));
+                        }
+
+                        route.Price = (int)transportType.PricePerHour * route.TravelTime;
+
+
+                    }
+                }
+                return route;
+            }
+        }
+
 
 
 
