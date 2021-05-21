@@ -25,6 +25,12 @@
     opacity: 1;
 }
 
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
 ::after, ::before {
     box-sizing: border-box;
     opacity: 1;

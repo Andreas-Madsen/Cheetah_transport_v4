@@ -1,5 +1,5 @@
 ﻿@section locationselectorsection {
-    <link href="@Url.Content("/css/parcel-information-style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/css/parcel-information-style.css")" rel="stylesheet" type="text/css"/>
 }
 
 <div class="bg">
@@ -9,26 +9,26 @@
             <div>
                 <div class="input-label">
                     <p>Insert weight:</p>
-                </div><input class="input-field form-control" type="number">
+                </div><input class="input-field form-control" type="number" min="0" max="40">
             </div>
             <div class="break"></div>
             <label style="font-weight: bold">Size:</label>
             <div>
                 <div class="input-label">
                     <p>Insert width:</p>
-                </div><input class="input-field form-control" type="number">
+                </div><input class="input-field form-control" type="number" min="0">
             </div>
             <div class="break"></div>
             <div>
                 <div class="input-label">
                     <p>Insert length:</p>
-                </div><input class="input-field form-control" type="number">
+                </div><input class="input-field form-control" type="number" min="0">
             </div>
             <div class="break"></div>
             <div>
                 <div class="input-label">
                     <p>Insert height:</p>
-                </div><input class="input-field form-control" type="number">
+                </div><input class="input-field form-control" type="number" min="0">
                 <div class="break"></div>
             </div>
             <label style="font-weight: bold">Extra options:</label>
@@ -55,14 +55,15 @@
         <div class="column">
             <label style="font-weight: bold">Type of Delivery: </label>
             <div>
-                <div class="input-label">
+                <div class="input-label" style="width: 170px">
                     <p>Cheapest</p>
-                </div><input class="radio-btn form-control" type="radio" name="deliverytype">
+                </div><input class="form-control" style="max-width: 120px;" type="radio" name="deliverytype">
             </div>
+            <div class="break"></div>
             <div>
-                <div class="input-label">
+                <div class="input-label" style="width: 170px">
                     <p>Fastest</p>
-                </div><input class="radio-btn  form-control" type="radio" name="deliverytype">
+                </div><input class="form-control" style="max-width: 120px;" type="radio" name="deliverytype">
             </div>
             <div class="break"></div>
             <label style="font-weight: bold">Recommended:</label>
@@ -82,5 +83,5 @@
         </div>
 
     </div>
-    <img class="bottom-logo" src="../../images/telstar_logo.PNG" />
+    <img class="bottom-logo" src="../../images/telstar_logo.PNG"/>
 </div>
