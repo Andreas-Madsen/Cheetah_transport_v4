@@ -36,9 +36,10 @@ namespace ExternalIntegration.Validations {
         }
 
         /**
-         * Check that the cities are directly connected
+         * Check that the cities are directly connected. Returns null if
+         * the cities are directly connected
          * 
-         * Insanely "good" method
+         * Insanely "good" and "short" method
          */
         public static string isCitiesDirect(CityEnum cityFrom, CityEnum cityTo) 
         {
@@ -78,12 +79,6 @@ namespace ExternalIntegration.Validations {
                 }
             }
 
-            if (checkCites(cityFrom, cityTo, CityEnum.CAIRO)) {
-                if (checkCites(cityFrom, cityTo, CityEnum.SUAKIN)) {
-                    return null;
-                }
-            }
-
             if (checkCites(cityFrom, cityTo, CityEnum.SUAKIN)) {
                 if (checkCites(cityFrom, cityTo, CityEnum.DARFUR)) {
                     return null;
@@ -96,6 +91,10 @@ namespace ExternalIntegration.Validations {
 
             if (checkCites(cityFrom, cityTo, CityEnum.ADDIS_ABEBA)) {
                 if (checkCites(cityFrom, cityTo, CityEnum.KAP_GUARDAFUI)) {
+                    return null;
+                }
+
+                if (checkCites(cityFrom, cityTo, CityEnum.VICTORIASOEEN)) {
                     return null;
                 }
             }
