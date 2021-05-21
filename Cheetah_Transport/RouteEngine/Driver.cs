@@ -12,23 +12,24 @@ namespace RouteEngine
     {
         static void Main(string[] args)
         {
-            var t1 = new TransportCenter();
+            /*var t1 = new TransportCenter();
             t1.Name = "DARFUR";
             t1.Id = 19;
 
             var t2 = new TransportCenter();
             t2.Name = "ADDIS_ABEBA";
-            t2.Id = 17;
+            t2.Id = 17;*/
 
+            var dao = new TransportCenterDAO();
+            var t1 = dao.FetchOne(2);
+            var t2 = dao.FetchOne(23);
+            
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             var routeEngine = new RouteEngine();
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
             var res = routeEngine.ComputeRoute(null, t1, t2);
-            foreach (var cityId in res.Item1)
-            {
-                TransportCenterDAO dao = new TransportCenterDAO();
-                var city = dao.FetchOne(cityId);
-                System.Console.WriteLine(city.Name);
-            }
-            System.Console.WriteLine(res.Item2);
+            System.Console.WriteLine(elapsedMs);
 
             //System.Console.WriteLine(res.ToString());
             System.Console.Read();
