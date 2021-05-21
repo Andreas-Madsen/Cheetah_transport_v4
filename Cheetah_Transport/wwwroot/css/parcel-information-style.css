@@ -1,4 +1,12 @@
-﻿.input-label {
+﻿.fragile {
+    width: 15%;
+    height: 15%;
+    object-fit: fill;
+    overflow: hidden;
+    opacity: 1;
+}
+
+.input-label {
     height: 35px;
     width: 120px;
     background-color: lightgray;
