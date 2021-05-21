@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>RouteEngine.Driver</StartupObject>
+    <StartupObject>Cheetah_Transport.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
