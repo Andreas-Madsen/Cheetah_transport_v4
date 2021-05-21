@@ -4,11 +4,30 @@
 
 @model IEnumerable<TransportCenter>
 
-<script type="text/javascript">  
-    function setStartLocation(test) {
-        console.log(test);
-    }  
-</script> 
+<script type="text/javascript">
+    function setStartLocation(location, id) {
+        document.getElementById("startLoc").innerText = location;
+        document.getElementById("startLocation").value = location;
+        document.getElementById("locidstart").value = id;
+    }
+
+    function setEndLocation(location, id) {
+        document.getElementById("endLoc").innerText = location;
+        document.getElementById("endLocation").value = location;
+        document.getElementById("locidend").value = id;
+    }
+
+    function setParamsAndNavigate() {
+        var start = document.getElementById("startLoc").innerText;
+        var end = document.getElementById("endLoc").innerText;
+        var params = {
+            startLoc: start,
+            endLoc: end
+
+        };
+        @*location.href = '@Url.Action("ParcelInformationPage", "ParcelInformation", new {"startLoc": start})'; -->*@
+    }
+</script>
 
 <div class="bg">
     <div class="row inner-frame">
@@ -21,14 +40,14 @@
                 <div style="float: right; padding-right: 30%">
                     <label>Delivery from</label>
                     <div class="btn-group">
-                        <button class="dropdown-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="startLoc" class="dropdown-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @ViewBag.startLocation
                         </button>
-                        <ul class="dropdown-menu" style="height: auto; max-height: 200px; overflow-x: hidden;"role="menu">
+                        <ul class="dropdown-menu" style="height: auto; max-height: 200px; overflow-x: hidden;" role="menu">
                             @foreach (var location in Model)
                             {
                                 <li>
-                                    <a class="dropdown-item" onclick="setStartLocation(@location.Name)">@location.Name</a>
+                                    <a class="dropdown-item" onclick="setStartLocation('@location.Name', '@location.Id')">@location.Name</a>
                                 </li>
                             }
                         </ul>
@@ -38,20 +57,26 @@
                     <div class="break"></div>
                     <label>Delivery to</label>
                     <div class="btn-group">
-                        <button class="dropdown-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           @ViewBag.endLocation
+                        <button id="endLoc" class="dropdown-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @ViewBag.endLocation
                         </button>
                         <ul class="dropdown-menu" style="height: auto; max-height: 200px; overflow-x: hidden;" role="menu">
                             @foreach (var location in Model)
                             {
                                 <li>
-                                    <a class="dropdown-item" href="#">@location.Name</a>
+                                    <a class="dropdown-item" onclick="setEndLocation('@location.Name', '@location.Id')">@location.Name</a>
                                 </li>
                             }
                         </ul>
                     </div>
                 </div>
-                <button class="flow-button btn btn-primary" onclick="location.href = '@Url.Action("ParcelInformationPage", "ParcelInformation")'">Next</button>
+                <form asp-action="Navigate" asp-controller="LocationSelector" method="POST">
+                    <input type="hidden" id="startLocation" name="startLoc" value="">
+                    <input type="hidden" id="locidstart" name="startid" value="">
+                    <input type="hidden" id="locidend" name="endid" value="">
+                    <input type="hidden" id="endLocation" name="endLoc" value="">
+                    <input type="submit" class="flow-button btn btn-primary"></input>
+                </form>
             </div>
         </div>
     </div>
