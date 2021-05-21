@@ -10,11 +10,9 @@ namespace Cheetah_Transport.Controllers
 {
     public class LocationSelectorController : Controller
     {
-        private List<TransportCenter> locations;
-
         public IActionResult LocationPage()
         {
-            locations = getLocations();
+            var locations = getLocations();
             ViewBag.startLocation = "Select start location";
             ViewBag.endLocation = "Select end location";
             return View(locations);
@@ -27,10 +25,23 @@ namespace Cheetah_Transport.Controllers
         }
 
         [HttpPost]
-        public IActionResult LocationPage(String startLocation)
+        public IActionResult Navigate()
         {
-            ViewBag.startLocation = startLocation;
-            return View(locations);
+            //var startLocName = Request.Form["startLoc"];
+            //var startLocId = Int32.Parse(Request.Form["startid"]);
+            //var endLocName = Request.Form["endLoc"];
+            //var endLocId = Int32.Parse(Request.Form["endid"]);
+            //var start = new TransportCenter();
+            //var end = new TransportCenter();
+            //start.Name = startLocName;
+            //start.Id = startLocId;
+            //end.Name = endLocName;
+            //end.Id = endLocId;
+
+            List<TransportCenter> locations = new List<TransportCenter>();
+            //locations.Add(start);
+            //locations.Add(end);
+            return RedirectToAction("ParcelInformationPage", "ParcelInformation", locations);
         }
     }
 }

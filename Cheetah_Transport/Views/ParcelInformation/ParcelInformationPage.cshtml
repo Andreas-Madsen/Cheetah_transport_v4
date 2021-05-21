@@ -2,6 +2,8 @@
     <link href="@Url.Content("/css/parcel-information-style.css")" rel="stylesheet" type="text/css"/>
 }
 
+@model IEnumerable<TransportCenter>
+
 <div class="bg">
     <div class="row inner-frame">
         <div class="column">
@@ -79,9 +81,11 @@
                     <p>The customer accepts agreement of not sending any weapons in this delivery:</p>
                 </div><input class="radio-btn form-control" type="checkbox">
             </div>
-            <button class="flow-button btn btn-primary" onclick="location.href = '@Url.Action("SummaryPage", "Summary")'">Finish</button>
+            <form asp-action="Navigate" asp-controller="ParcelInformation" method="POST">
+               
+                <input class="flow-button btn btn-primary" type="submit"></input>
+            </form>
         </div>
-
     </div>
     <img class="bottom-logo" src="../../images/telstar_logo.PNG"/>
 </div>
