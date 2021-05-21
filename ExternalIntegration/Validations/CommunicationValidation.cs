@@ -8,7 +8,7 @@ namespace ExternalIntegration.Validations {
         /**
          * Check that the company secret is valid
          */
-        public static string isCompanySecretValid(CompanyEnum company, string secret)
+        public static string IsCompanySecretValid(CompanyEnum company, string secret)
         {
             switch (company) 
             {
@@ -41,7 +41,7 @@ namespace ExternalIntegration.Validations {
          * 
          * Insanely "good" and "short" method
          */
-        public static string isCitiesDirect(CityEnum cityFrom, CityEnum cityTo) 
+        public static string IsCitiesDirect(CityEnum cityFrom, CityEnum cityTo) 
         {
             if(checkCites(cityFrom, cityTo, CityEnum.TANGER)) {
                 if(checkCites(cityFrom, cityTo, CityEnum.MARRAKESH)) {
@@ -251,7 +251,7 @@ namespace ExternalIntegration.Validations {
         /**
          * Checks that the number is valid
          */
-        public static string isNumberValid(int i) {
+        public static string IsNumberValid(int i) {
             if(i > 0)
             {
                 return null;
@@ -276,7 +276,7 @@ namespace ExternalIntegration.Validations {
             }
 
             //Check company secret
-            string secretError = isCompanySecretValid(company, telstarRequest.SecretCompanyCode);
+            string secretError = IsCompanySecretValid(company, telstarRequest.SecretCompanyCode);
             if(secretError != null) 
             {
                 return secretError;
@@ -302,14 +302,14 @@ namespace ExternalIntegration.Validations {
             }
 
             //Check if cities are directly connected
-            string citiesDirectError = isCitiesDirect(cityFrom, cityTo);
+            string citiesDirectError = IsCitiesDirect(cityFrom, cityTo);
             if (citiesDirectError != null)
             {
                 return citiesDirectError;
             }
 
             //Check weight
-            string weightError = isNumberValid(telstarRequest.Weight);
+            string weightError = IsNumberValid(telstarRequest.Weight);
             if (weightError != null) {
                 return weightError;
             }
@@ -319,19 +319,19 @@ namespace ExternalIntegration.Validations {
             }
 
             //Check width
-            string widthError = isNumberValid(telstarRequest.Width);
+            string widthError = IsNumberValid(telstarRequest.Width);
             if (widthError != null) {
                 return widthError;
             }
 
             //Check length
-            string lengthError = isNumberValid(telstarRequest.Length);
+            string lengthError = IsNumberValid(telstarRequest.Length);
             if (lengthError != null) {
                 return lengthError;
             }
 
             //Check height
-            string heightError = isNumberValid(telstarRequest.Height);
+            string heightError = IsNumberValid(telstarRequest.Height);
             if(heightError != null) {
                 return heightError;
             }

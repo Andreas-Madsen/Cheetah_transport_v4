@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cheetah_Transport\Cheetah_Transport.csproj" />
+    <ProjectReference Include="..\ExternalIntegration\ExternalIntegration.csproj" />
   </ItemGroup>
 
 </Project>
