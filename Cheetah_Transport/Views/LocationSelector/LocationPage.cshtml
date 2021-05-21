@@ -1,0 +1,59 @@
+﻿@section locationselectorsection {
+    <link href="@Url.Content("/css/location-selector-style.css")" rel="stylesheet" type="text/css"/>
+}
+
+@model IEnumerable<TransportCenter>
+
+<script type="text/javascript">  
+    function setStartLocation(test) {
+        console.log(test);
+    }  
+</script> 
+
+<div class="bg">
+    <div class="row inner-frame">
+        <div class="column">
+            <img class="map" src="/images/Map.jpg"/>
+        </div>
+        <div class="column">
+            <div style="margin-top: 10%">
+
+                <div style="float: right; padding-right: 30%">
+                    <label>Delivery from</label>
+                    <div class="btn-group">
+                        <button class="dropdown-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @ViewBag.startLocation
+                        </button>
+                        <ul class="dropdown-menu" style="height: auto; max-height: 200px; overflow-x: hidden;"role="menu">
+                            @foreach (var location in Model)
+                            {
+                                <li>
+                                    <a class="dropdown-item" onclick="setStartLocation(@location.Name)">@location.Name</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div style="float: right; padding-right: 30%">
+                    <div class="break"></div>
+                    <label>Delivery to</label>
+                    <div class="btn-group">
+                        <button class="dropdown-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           @ViewBag.endLocation
+                        </button>
+                        <ul class="dropdown-menu" style="height: auto; max-height: 200px; overflow-x: hidden;" role="menu">
+                            @foreach (var location in Model)
+                            {
+                                <li>
+                                    <a class="dropdown-item" href="#">@location.Name</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <button class="flow-button btn btn-primary" onclick="location.href = '@Url.Action("ParcelInformationPage", "ParcelInformation")'">Next</button>
+            </div>
+        </div>
+    </div>
+    <img class="bottom-logo" src="../../images/telstar_logo.PNG"/>
+</div>
