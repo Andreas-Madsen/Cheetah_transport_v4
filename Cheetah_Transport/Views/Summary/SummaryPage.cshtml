@@ -5,8 +5,25 @@
 <div class="bg">
     <div class="row inner-frame">
         <div class="column">
+            <img class="map" src="/images/Map.jpg" />
         </div>
         <div class="column">
+            <div class="container">
+                <div class="child">
+                    <h1>Shortest route (travel time)</h1>
+                    <label>From: @ViewBag.From, To: @ViewBag.To</label>
+                    <ul>
+                        @foreach (var node in ViewBag.Route)
+                        {
+                            <li>
+                                @node
+                            </li>
+                        }
+                    </ul>
+                    <h2>Total time: @ViewBag.Distance hr</h2>
+                    
+                </div>
+            </div>
             <button class="flow-button btn btn-primary" onclick="location.href = '@Url.Action("Start", "Frontpage")'">Close</button>
         </div>
 
